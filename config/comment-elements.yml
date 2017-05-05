@@ -1,4 +1,4 @@
-- type: select-or-other
+- type: user-select
   prefix:
   choices:
     - The FCC should safeguard Internet freedom by keeping the bright-line net neutrality protections in place and upholding Title II.
@@ -10,31 +10,31 @@
     - As an Internet user, I’m asking the FCC to protect the strong net neutrality protections currently in place.
     - The FCC needs to stand up for Internet users like me and keep the strong net neutrality rules that are already in effect.
 
-- type: select-or-other
+- type: random
   prefix: The FCC should
   choices:
     - reject
     - throw out
 
-- type: select-or-other
+- type: random
   prefix: Chairman Ajit Pai’s
   choices:
     - plan
     - proposal
 
-- type: select-or-other
+- type: random
   prefix: to
   choices:
     - give
     - hand
 
-- type: select-or-other
+- type: random
   prefix: the government-subsidized
   choices:
     - telecom giants
-    - IPS monopolies
+    - ISP monopolies
 
-- type: select-or-other
+- type: random
   prefix: like
   choices:
     - Comcast, AT&T, and Verizon
@@ -44,62 +44,62 @@
     - Verizon,  AT&T and Comcast
     - Verizon, Comcast, and AT&T
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - free rein to
     - the authority to
     - the legal cover to
 
-- type: select-or-other
+- type: user-select
   prefix:
   choices:
     - engage in data discrimination,
     - throttle whatever they please,
     - create Internet fastlanes,
 
-- type: select-or-other
+- type: random
   prefix: stripping
   choices:
     - consumers
     - users
     - Internet users
 
-- type: select-or-other
+- type: random
   prefix: of the
   choices:
     - necessary
     - meaningful
     - vital
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - access and privacy
     - privacy and access
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - protections
     - rules
     - safeguards
 
-- type: select-or-other
+- type: random
   prefix: we
   choices:
     - fought for
     - demanded
     - worked for
 
-- type: select-or-other
+- type: random
   prefix: and
   choices:
     - won just two years ago.
     - just recently won.
     - so recently won.
 
-- type: select-or-other
+- type: user-select
   prefix:
   choices:
     - I’m worried about creating a tiered Internet with “fast lanes” for certain sites or services because
@@ -107,45 +107,45 @@
     - I’m afraid of a “pay-to-play” Internet where ISPs can charge more for certain websites because
 
 # this one really should have Other...
-- type: select-or-other
+- type: user-select-or-other
   prefix:
   choices:
     - Users will have fewer options and a less diverse Internet.
     - ISPs could have too much power to determine what I can do online.
 
-- type: select-or-other
+- type: random
   prefix: Thankfully, the
   choices:
     - current
     - existing
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - net neutrality rules
     - FCC regulations
     - Open Internet rules
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - ensure that
     - mean that
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - ISPs
     - Internet providers
     - ISP monopolies
 
-- type: select-or-other
+- type: random
   prefix: can’t
   choices:
     - block or slow
     - slow or block
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - customers’
@@ -154,60 +154,59 @@
     - Internet users’
     - consumers’
 
-- type: select-or-other
+- type: random
   prefix:
   choices:
     - access to
     - ability to see
 
-- type: select-or-other
+- type: random
   prefix: certain
   choices:
-    - websites
-    - web services
+    - websites or
+    - web services or
 
 
-- type: select-or-other
-  prefix: or
+- type: user-select
+  prefix:
   choices:
     - create Internet “fast lanes”
     - engage in data discrimination
-    - 
 
-- type: select-or-other
+- type: random
   prefix: by charging
   choices:
     - websites and online service
     - online services and websites
-    - 
 
-- type: select-or-other
-  prefix: more
+- type: random
+  prefix:
   choices:
     - money
+    - more money
 
-- type: select-or-other
+- type: random
   prefix: to reach
   choices:
     - consumers
     - customers
     - people
 
-- type: select-or-other
+- type: random
   prefix: faster.
   choices:
     - That’s exactly the right balance
     - That’s the best way forward
     - That’s the right kind of forward-looking approach
 
-- type: select-or-other
+- type: random
   prefix: to
   choices:
     - ensure the Internet remains a level playing field that
     - make sure competition in the Internet space is fair and
     - 
 
-- type: select-or-other
+- type: random
   prefix: benefits
   choices:
     - consumers and small businesses
@@ -215,65 +214,62 @@
     - Internet users and small businesses
     - small businesses and Internet users
 
-- type: select-or-other
+- type: random
   prefix: as well as
   choices:
     - larger players.
     - entrenched Internet companies.
 
-- type: select-or-other
+- type: random
   prefix: 
   choices:
     - Pai’s
     - Chairman Pai’s
 
-- type: select-or-other
+- type: random
   prefix: 
   choices:
     - proposal
     - proposed repeal of the rules
 
-- type: select-or-other
+- type: random
   prefix: would
   choices:
     - help turn
     - transform
-    - 
 
-- type: select-or-other
+- type: random
   prefix: 
   choices:
     - ISPs
     - Internet providers
-    - 
 
-- type: select-or-other
+- type: random
   prefix: into
   choices:
     - gatekeepers
     - Internet gatekeepers
 
-- type: select-or-other
+- type: random
   prefix: with
   choices:
     - an effective veto right on
     - the ability to veto new
 
-- type: select-or-other
+- type: random
   prefix: 
   choices:
     - innovation and expression.
     - expression and innovation.
-    - 
 
-- type: select-or-other
+- type: random
   prefix: 
   choices:
     - That’s not how the Internet was built, and that not what we want for our digital future.
     - That’s not the kind of Internet we want to pass on to future generations of technology users.
     - That’s contrary to the basic precepts on which the Internet was built
 
-- type: select-or-other
+- type: user-select
   prefix: 
   choices:
     - Thank you for keeping Title II net neutrality rules in place to protect Internet users like me.

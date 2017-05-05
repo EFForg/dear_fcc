@@ -2,13 +2,23 @@ module DearFcc
   class App
     module FormHelper
       def write_dear_fcc_comment
+        hidden_fields = ""
         comment_elements.each_with_index.map do |element, i|
           name = "comment[element_#{i}]"
 
           case element["type"]
-          when "select-or-other"
+          when "user-select"
+            choices = element["choices"].map{ |opt| [opt, opt] }
+            content_tag(:fieldset) do
+              label_tag(name, caption: nil){ element["prefix"] } +
+                select_tag(name, options: choices, class: "form-control")
+            end
+
+          when "user-select-or-other"
             other_name = "comment[element_#{i}_other]"
-            choices = element["choices"].map{ |opt| [opt, opt] } << ["Other..", "other"]
+            choices = element["choices"].map do |opt|
+              [opt, ["#{element['prefix']}".strip, opt].join(" ")]
+            end<< ["Other..", "other"]
 
             content_tag(:fieldset, class: "select-or-other") do
               label_tag(name, caption: nil){ element["prefix"] } +
@@ -16,13 +26,18 @@ module DearFcc
                 content_tag(:div, class: "other"){ text_field_tag(other_name, class: "form-control") }
             end
 
+          when "random"
+            string = ["#{element['prefix']}".strip, element["choices"].sample].join(" ")
+            hidden_fields << hidden_field_tag(name, value: string)
+            string
+
           when "freeform"
             content_tag(:fieldset) do
               label_tag(name, caption: nil){ element["prompt"] } +
                 text_area_tag(name, value: element["placeholder"], class: "form-control", rows: 5)
             end
           end
-        end.join.html_safe
+        end.join(" ").html_safe << hidden_fields.html_safe
       end
 
       def read_dear_fcc_comment(params)
@@ -32,14 +47,14 @@ module DearFcc
           name = "element_#{i}"
 
           case element["type"]
-          when "select-or-other"
+          when "user-select-or-other"
             if params[name] == "other"
-              comment << " " + [element["prefix"], params.fetch("#{name}_other").strip].join(" ")
+              comment << " " + params.fetch("#{name}_other").strip
             else
-              comment << " " + [element["prefix"], params.fetch(name).strip].join(" ")
+              comment << " " + params.fetch(name).strip
             end
 
-          when "freeform"
+          else
             comment << " " + params.fetch(name).strip
           end
         end
