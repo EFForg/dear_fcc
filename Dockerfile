@@ -11,6 +11,7 @@ RUN bundle install
 ADD app ./app
 ADD config ./config
 ADD config.ru ./config.ru
+ADD db ./db
 ADD public ./public
 ADD Rakefile ./Rakefile
 
