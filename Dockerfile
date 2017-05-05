@@ -14,4 +14,8 @@ ADD config.ru ./config.ru
 ADD public ./public
 ADD Rakefile ./Rakefile
 
+ADD entrypoint.sh ./entrypoint.sh
+ENTRYPOINT ./entrypoint.sh
+
 CMD ["padrino", "s", "-h", "0.0.0.0"]
+ENTRYPOINT ["/opt/dear_fcc/entrypoint.sh"]

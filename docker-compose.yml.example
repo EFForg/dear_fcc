@@ -2,26 +2,33 @@ version: '2'
 services:
   app:
     build: .
+    depends_on:
+      - postgres
     ports:
       - '3000:3000'
     env_file: .env
 
     # volumes:
     #   - ./app:/opt/dear_fcc/app
+    #   - ./db:/opt/dear_fcc/db
     #   - ./config:/opt/dear_fcc/config
     #   - ./public:/opt/dear_fcc/public
 
-  redis:
-    image: redis
+  postgres:
+    image: postgres:alpine
+    env_file: .env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
 
-  sidekiq:
+  delayed_jobs_worker:
     build: .
     depends_on:
-      - redis
+      - postgres
     env_file: .env
-    command: bundle exec sidekiq -r ./config/boot.rb
+    command: bundle exec rake jobs:work
 
     # volumes:
     #   - ./app:/opt/dear_fcc/app
+    #   - ./db:/opt/dear_fcc/db
     #   - ./config:/opt/dear_fcc/config
     #   - ./public:/opt/dear_fcc/public

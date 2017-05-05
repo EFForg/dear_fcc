@@ -1,10 +1,5 @@
-require 'sidekiq'
-require 'sidekiq/api'
-
 class NewsletterWorker
-  include Sidekiq::Worker
-
-  def perform(email, zip_code)
+  def self.signup(email, zip_code)
     supporters_uri = "https://supporters.eff.org/subscribe"
     params = {
       "data_type" => "json",

@@ -13,9 +13,14 @@ source 'https://rubygems.org'
 # Optional JSON codec (faster performance)
 # gem 'oj'
 
+# Padrino Stable Gem
+gem 'padrino', '~> 0.13'
+
 # Project requirements
 gem 'rake'
-gem 'sidekiq'
+gem 'pg'
+gem 'activerecord', require: 'active_record'
+gem 'delayed_job_active_record'
 gem 'httparty'
 gem 'dotenv'
 
@@ -23,15 +28,10 @@ gem 'dotenv'
 gem 'padrino-sprockets'
 gem 'sass'
 
-# Component requirements
-
 # Test/development requirements
 group :test, :development do
   gem 'pry'
 end
-
-# Padrino Stable Gem
-gem 'padrino', '0.13.3.3'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

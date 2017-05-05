@@ -14,7 +14,6 @@ module DearFcc
             city: filer.fetch("city"),
             state: filer.fetch("state"),
             zip_code: filer.fetch("zip_code")
-#            zip4: filer.fetch("zip4")
           },
           internationaladdressentity: { addresstext: "" },
           contact_email: filer.fetch("email"),
@@ -22,9 +21,7 @@ module DearFcc
           express_comment: 1
         }
 
-        pp filer
-
-        pp payload
+        EcfsWorker.delay.submit_comment(payload)
       end
     end
 
