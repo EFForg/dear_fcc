@@ -16,7 +16,7 @@ There are two files for configuration of the letter campaign:
 Describes the FCC proceeding to which comments will be submitted.
 
 ### `config/comments-elements.yml`
-Describes the letter template which is presented to the user. There are 3 types of elements in the letter:
+Describes the comment template which is presented to the user. There are 3 types of elements in the comment:
 
    * `type: user-select`  
       give the user a choice of what language to use
