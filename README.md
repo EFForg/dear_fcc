@@ -2,7 +2,9 @@
 
 ## Setup / Deployment
 
-There are example files docker-compose.yml.example and .env.example illustrating a production deployment with docker.
+There are example files [docker-compose.yml.example](https://gitlab.eff.org/ed/dear_fcc/blob/master/docker-compose.yml.example)
+and [.env.example](https://gitlab.eff.org/ed/dear_fcc/blob/master/.env.example)
+illustrating a production deployment with docker.
 
     $ cp docker-compose.yml.example docker-compose.yml
     $ cp .env.example .env  
@@ -12,10 +14,10 @@ There are example files docker-compose.yml.example and .env.example illustrating
 
 There are two files for configuration of the letter campaign:
 
-### `config/proceeding.yml`
+### [`config/proceeding.yml`](https://gitlab.eff.org/ed/dear_fcc/blob/master/config/proceeding.yml)
 Describes the FCC proceeding to which comments will be submitted.
 
-### `config/comments-elements.yml`
+### [`config/comments-elements.yml`](https://gitlab.eff.org/ed/dear_fcc/blob/master/config/comment-elements.yml)
 Describes the comment template which is presented to the user. There are 3 types of elements in the comment:
 
    * `type: user-select`  
