@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>">
+
+    <title>Dear FCC, It's Our Internet and We'll Fight To Protect It</title>
+
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <a href="https://www.eff.org/" title="Electronic Frontier Foundation">
+        <img src="<%= image_path('eff-logo.png') %>" alt="Home">
+      </a>
+    </header>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+    <aside id="social-media">
+      <% link_to twitter_share_url, class: "twitter", target: "_blank" do %>
+        <img src="<%= image_path('social-twitter-up.jpg') %>" alt="Share on Twitter" title="Share on Twitter">
+      <% end %>
+      <% link_to facebook_share_url, class: "facebook", target: "_blank" do %>
+        <img src="<%= image_path('social-fb-up.jpg') %>" alt="Share on Facebook" title="Share on Facebook">
+      <% end %>
+      <% link_to google_share_url, class: "google", target: "_blank" do %>
+        <img src="<%= image_path('social-google-up.jpg') %>" alt="Share on Google+" title="Share on Google+">
+      <% end %>
+      <% link_to email_share_url, class: "email", target: "_blank" do %>
+        <img src="<%= image_path('social-email-up.jpg') %>" alt="Email This" title="Email This">
+      <% end %>
+    </aside>
+
+    <footer>
+      <a class="license" href="https://www.eff.org/copyright"><img typeof="foaf:Image" src="https://www.eff.org/sites/all/themes/frontier/images/cc-by-logo.png" alt="Creative Commons Licensed" /></a>
+      <a class="privacy-policy" href="https://www.eff.org/policy" title="">Privacy Policy</a>
+    </footer>
+
+    <noscript><img src="https://anon-stats.eff.org/piwik.php?idsite=14&amp;rec=1&amp;action_name=DearFCC" style="border:0" alt=""/ ></noscript>
+    <div id="anon-stats" class="element-invisible"></div>
+    <script type="text/javascript">
+      document.getElementById('anon-stats').innerHTML = '<img src="https://anon-stats.eff.org/piwik.php?idsite=14&amp;rec=1&amp;urlref='+document.referrer+'&amp;action_name=DearFCC" style="border:0" alt="" />';
+    </script>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<%= partial "main_image" %>
+
+<form id="dearfcc" enctype="multipart/form-data" action="/fcc-comments" method="post" accept-charset="UTF-8">
+  <h3>Dear FCC,</h3>
+
+  <fieldset>
+    <textarea class="form-control preview" rows="<%= estimate_textarea_rows(@comment) %>"><%= @comment %></textarea>
+  </fieldset>
+
+  <p>Sincerely,</p>
+
+  <p>
+    <%= @filer.fetch("name") %><br />
+    <%= @filer.fetch("address_line_1") %><br />
+    <%= @filer.fetch("city") %>, <%= @filer.fetch("state") %> <%= @filer.fetch("zip_code") %>
+  </p>
+
+  <input type="hidden" name="comment" value="<%= @comment %>" />
+  <input type="hidden" name="filer[name]" value="<%= @filer.fetch('name') %>" />
+  <input type="hidden" name="filer[address_line_1]" value="<%= @filer.fetch('address_line_1') %>" />
+  <input type="hidden" name="filer[city]" value="<%= @filer.fetch('city') %>" />
+  <input type="hidden" name="filer[state]" value="<%= @filer.fetch('state') %>" />
+  <input type="hidden" name="filer[zip_code]" value="<%= @filer.fetch('zip_code') %>" />
+  <input type="hidden" name="filer[email]" value="<%= @filer.fetch('email') %>" />
+  <input type="hidden" name="subscribe" value="<%= @subscribe ? 'yes' : 'no' %>" />
+
+  <p>&nbsp;</p>
+
+  <p><%= partial "public_record_notice" %></p>
+
+  <div class="form-actions">
+    <button type="submit" class="submit" value="Submit Comment >>">Submit Comment &gt;&gt;</button>
+  </div>
+</div>

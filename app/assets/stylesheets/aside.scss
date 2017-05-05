@@ -1,0 +1,34 @@
+
+aside#social-media {
+  display: none;
+
+  .twitter:hover {
+    visibility: hidden;
+  }
+
+  .facebook:hover {
+
+  }
+
+  .google:hover {
+
+  }
+
+  .email:hover {
+
+  }
+}
+
+@media (min-width: 940px) {
+  aside#social-media {
+    display: block;
+    position: absolute;
+    width: 40px;
+    left: 85%;
+    top:280px;
+  }
+  aside#social-media img {
+    width: 40px;
+    height: 40px;
+  }
+}

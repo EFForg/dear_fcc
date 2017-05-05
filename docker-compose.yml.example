@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    env_file: .env
+
+    # volumes:
+    #   - ./app:/opt/dear_fcc/app
+    #   - ./config:/opt/dear_fcc/config
+    #   - ./public:/opt/dear_fcc/public
+
+  redis:
+    image: redis
+
+  sidekiq:
+    build: .
+    ports: []
+    depends_on:
+      - redis
+    env_file: .env
+    command: bundle exec sidekiq -r ./config/boot.rb
+
+    # volumes:
+    #   - ./app:/opt/dear_fcc/app
+    #   - ./config:/opt/dear_fcc/config
+    #   - ./public:/opt/dear_fcc/public
