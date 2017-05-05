@@ -16,7 +16,6 @@ services:
 
   sidekiq:
     build: .
-    ports: []
     depends_on:
       - redis
     env_file: .env
