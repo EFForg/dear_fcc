@@ -36,6 +36,9 @@ module DearFcc
               label_tag(name, caption: nil){ element["prompt"] } +
                 text_area_tag(name, value: element["placeholder"], class: "form-control", rows: 5)
             end
+
+          when "break"
+            content_tag(:br)
           end
         end.join(" ").html_safe << hidden_fields.html_safe
       end
@@ -53,6 +56,9 @@ module DearFcc
             else
               comment << " " + params.fetch(name).strip
             end
+
+          when "break"
+            comment << "\n\n"
 
           else
             comment << " " + params.fetch(name).strip

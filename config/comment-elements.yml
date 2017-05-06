@@ -1,4 +1,4 @@
-- type: user-select
+- type: random
   prefix:
   choices:
     - The FCC should safeguard Internet freedom by keeping the bright-line net neutrality protections in place and upholding Title II.
@@ -9,6 +9,8 @@
     - The FCC must protect the open Internet by maintaining net neutrality protections under Title II.
     - As an Internet user, I’m asking the FCC to protect the strong net neutrality protections currently in place.
     - The FCC needs to stand up for Internet users like me and keep the strong net neutrality rules that are already in effect.
+
+- type: break
 
 - type: random
   prefix: The FCC should
@@ -57,7 +59,7 @@
     - the authority to
     - the legal cover to
 
-- type: user-select
+- type: random
   prefix:
   choices:
     - engage in data discrimination,
@@ -105,7 +107,9 @@
     - just recently won.
     - so recently won.
 
-- type: user-select
+- type: break
+
+- type: random
   prefix:
   choices:
     - I’m worried about creating a tiered Internet with “fast lanes” for certain sites or services because
@@ -173,7 +177,7 @@
     - web services or
 
 
-- type: user-select
+- type: random
   prefix:
   choices:
     - create Internet “fast lanes”
@@ -275,7 +279,14 @@
     - That’s not the kind of Internet we want to pass on to future generations of technology users.
     - That’s contrary to the basic precepts on which the Internet was built
 
-- type: user-select
+- type: break
+
+- type: freeform
+  prompt: "Why the internet matters to me:"
+
+- type: break
+
+- type: random
   prefix: 
   choices:
     - Thank you for keeping Title II net neutrality rules in place to protect Internet users like me.
