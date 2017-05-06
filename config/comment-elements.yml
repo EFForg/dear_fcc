@@ -29,6 +29,12 @@
     - hand
 
 - type: random
+  prefix:
+  choices:
+    - the
+    - the government-subsidized
+
+- type: random
   prefix: the government-subsidized
   choices:
     - telecom giants
@@ -56,7 +62,7 @@
   choices:
     - engage in data discrimination,
     - throttle whatever they please,
-    - create Internet fastlanes,
+    - create Internet fast lanes,
 
 - type: random
   prefix: stripping
