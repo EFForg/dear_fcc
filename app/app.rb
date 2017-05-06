@@ -31,8 +31,8 @@ module DearFcc
     end
 
     post "/fcc-comments" do
-      proceeding = YAML.load_file("#{Padrino.root}/config/proceeding.yml")
-      ecfs_express_comment(proceeding, params.fetch("comment"), params.fetch("filer"))
+      proceedings = YAML.load_file("#{Padrino.root}/config/proceedings.yml")
+      ecfs_express_comment(proceedings, params.fetch("comment"), params.fetch("filer"))
 
       if params["subscribe"] == "yes"
         sign_up_for_effector(params.fetch("filer"))

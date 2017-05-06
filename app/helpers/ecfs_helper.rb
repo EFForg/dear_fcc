@@ -1,10 +1,10 @@
 module DearFcc
   class App
     module EcfsHelper
-      def ecfs_express_comment(proceeding, comment, filer)
+      def ecfs_express_comment(proceedings, comment, filer)
         payload = {
           documents: [],
-          proceedings: [proceeding],
+          proceedings: proceedings,
           filers: [{ name: filer.fetch("name") }],
           authors: [],
           bureaus: [],
