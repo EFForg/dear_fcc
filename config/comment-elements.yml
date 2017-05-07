@@ -37,7 +37,7 @@
     - the government-subsidized
 
 - type: random
-  prefix: the government-subsidized
+  prefix:
   choices:
     - telecom giants
     - ISP monopolies
