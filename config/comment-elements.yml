@@ -46,10 +46,10 @@
   prefix: like
   choices:
     - Comcast, AT&T, and Verizon
-    - AT&T, Comcast, Verizon
+    - AT&T, Comcast, and Verizon
     - Comcast,  Verizon, and AT&T
     - AT&T, Verizon, and Comcast
-    - Verizon,  AT&T and Comcast
+    - Verizon,  AT&T, and Comcast
     - Verizon, Comcast, and AT&T
 
 - type: random
