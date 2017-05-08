@@ -7,8 +7,8 @@
     - The FCC should ensure a fair and open Internet for all by opposing efforts to undermine net neutrality.
     - The FCC should stand up for Internet users by safeguarding net neutrality.
     - The FCC must protect the open Internet by maintaining net neutrality protections under Title II.
-    - As an Internet user, I’m asking the FCC to protect the strong net neutrality protections currently in place.
-    - The FCC needs to stand up for Internet users like me and keep the strong net neutrality rules that are already in effect.
+    - As an Internet user, I’m asking the FCC to protect the net neutrality protections currently in place.
+    - The FCC needs to stand up for Internet users like me and keep the net neutrality rules that are already in effect.
 
 - type: break
 
@@ -275,9 +275,9 @@
 - type: random
   prefix: 
   choices:
-    - That’s not how the Internet was built, and that not what we want for our digital future.
+    - That’s not how the Internet was built, and that not what we want.
     - That’s not the kind of Internet we want to pass on to future generations of technology users.
-    - That’s contrary to the basic precepts on which the Internet was built
+    - That’s contrary to the basic precepts on which the Internet was built.
 
 - type: break
 
