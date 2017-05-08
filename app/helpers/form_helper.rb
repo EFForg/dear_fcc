@@ -18,7 +18,7 @@ module DearFcc
             other_name = "comment[element_#{i}_other]"
             choices = element["choices"].map do |opt|
               [opt, ["#{element['prefix']}".strip, opt].join(" ")]
-            end<< ["Other..", "other"]
+            end << ["Other..", "other"]
 
             content_tag(:fieldset, class: "select-or-other") do
               label_tag(name, caption: nil){ element["prefix"] } +
@@ -63,7 +63,8 @@ module DearFcc
           when "freeform"
             value = params.fetch(name).strip
             unless value.empty?
-              components << (value.sub(/\.$/, "") << ".")
+              value << "." unless [".", "!", "?"].include?(value[-1])
+              components << value
             end
 
           else
