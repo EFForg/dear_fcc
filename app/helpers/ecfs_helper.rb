@@ -21,7 +21,7 @@ module DearFcc
           express_comment: 1
         }
 
-        EcfsWorker.delay.submit_comment(payload)
+        EcfsWorker.delay(queue: "comments").submit_comment(payload)
       end
     end
 
