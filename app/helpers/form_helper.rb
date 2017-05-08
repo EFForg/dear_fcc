@@ -61,14 +61,17 @@ module DearFcc
             components << "\n\n"
 
           when "freeform"
-            components << (params.fetch(name).strip.sub(/\.$/, "") << ".")
+            value = params.fetch(name).strip
+            unless value.empty?
+              components << (value.sub(/\.$/, "") << ".")
+            end
 
           else
             components << params.fetch(name).strip
           end
         end
 
-        components.join(" ").strip.gsub("\n\n ", "\n\n")
+        components.join(" ").strip.gsub("\n\n ", "\n\n").gsub("\n\n\n\n", "\n\n")
       end
 
       def estimate_textarea_rows(comment)
