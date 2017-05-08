@@ -31,7 +31,13 @@ module DearFcc
     end
 
     post "/fcc-comments" do
-      proceedings = YAML.load_file("#{Padrino.root}/config/proceedings.yml")
+      if Padrino.env == :production
+        $proceedings ||= YAML.load_file("#{Padrino.root}/config/proceedings.yml")
+        proceedings = $proceedings
+      else
+        proceedings = YAML.load_file("#{Padrino.root}/config/proceedings.yml")
+      end
+
       ecfs_express_comment(proceedings, params.fetch("comment"), params.fetch("filer"))
 
       if params["subscribe"] == "yes"

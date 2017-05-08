@@ -75,7 +75,11 @@ module DearFcc
       private
 
       def comment_elements
-        YAML.load_file("#{Padrino.root}/config/comment-elements.yml")
+        if Padrino.env == :production
+          $comment_elements ||= YAML.load_file("#{Padrino.root}/config/comment-elements.yml")
+        else
+          YAML.load_file("#{Padrino.root}/config/comment-elements.yml")
+        end
       end
     end
 
