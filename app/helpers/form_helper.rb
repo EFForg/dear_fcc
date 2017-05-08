@@ -44,7 +44,7 @@ module DearFcc
       end
 
       def read_dear_fcc_comment(params)
-        comment = ""
+        components = []
 
         comment_elements.each_with_index do |element, i|
           name = "element_#{i}"
@@ -52,20 +52,23 @@ module DearFcc
           case element["type"]
           when "user-select-or-other"
             if params[name] == "other"
-              comment << " " + params.fetch("#{name}_other").strip
+              components << (params.fetch("#{name}_other").strip.sub(/\.$/, "") << ".")
             else
-              comment << " " + params.fetch(name).strip
+              components << params.fetch(name).strip
             end
 
           when "break"
-            comment << "\n\n"
+            components << "\n\n"
+
+          when "freeform"
+            components << (params.fetch(name).strip.sub(/\.$/, "") << ".")
 
           else
-            comment << " " + params.fetch(name).strip
+            components << params.fetch(name).strip
           end
         end
 
-        comment.strip
+        components.join(" ").strip.gsub("\n\n ", "\n\n")
       end
 
       def estimate_textarea_rows(comment)
