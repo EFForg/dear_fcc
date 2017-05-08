@@ -145,5 +145,26 @@ form#dearfcc {
     max-height: 2rem;
     transition: max-height 70ms;
   }
+
+
+  .random-choice {
+    display: inline;
+  }
+
+  .random-choice select {
+    display: none;
+  }
+
+  .random-choice .choices * {
+    display: none;
+  }
+
+  .random-choice .choices .chosen {
+    display: inline;
+  }
+
+  .random-choice:not(.processed) .choices *:first-child {
+    display: inline;
+  }
 }
 

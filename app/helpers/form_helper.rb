@@ -27,9 +27,15 @@ module DearFcc
             end
 
           when "random"
-            string = ["#{element['prefix']}".strip, element["choices"].sample].join(" ")
-            hidden_fields << hidden_field_tag(name, value: string)
-            string
+            content_tag(:div, class: "random-choice") do
+              choices = element["choices"].map{ |opt| [opt, [element["prefix"].to_s, opt].join(" ")] }
+              prefix = "#{element['prefix']} ".html_safe
+              select = select_tag(name, options: choices, class: "alternatives")
+              texts = content_tag(:span, class: "choices") do
+                element["choices"].map{ |opt| content_tag(:span){ opt } }.join.html_safe
+              end
+              (prefix + select + texts).html_safe
+            end
 
           when "freeform"
             content_tag(:fieldset) do
