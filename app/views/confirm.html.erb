@@ -4,7 +4,7 @@
   <h3>Dear FCC,</h3>
 
   <fieldset>
-    <textarea class="form-control preview" rows="<%= estimate_textarea_rows(@comment) %>"><%= @comment %></textarea>
+    <textarea class="form-control preview" name="comment" rows="<%= estimate_textarea_rows(@comment) %>"><%= @comment %></textarea>
   </fieldset>
 
   <p>Sincerely,</p>
@@ -15,7 +15,6 @@
     <%= @filer.fetch("city") %>, <%= @filer.fetch("state") %> <%= @filer.fetch("zip_code") %>
   </p>
 
-  <input type="hidden" name="comment" value="<%= @comment %>" />
   <input type="hidden" name="filer[name]" value="<%= @filer.fetch('name') %>" />
   <input type="hidden" name="filer[address_line_1]" value="<%= @filer.fetch('address_line_1') %>" />
   <input type="hidden" name="filer[city]" value="<%= @filer.fetch('city') %>" />
