@@ -26,3 +26,15 @@ Describes the comment template which is presented to the user. There are 3 types
       same as `user-select` but also provides an "Other..." option which allows free-form entry
    * `type: random`  
       randomly selects one of the choices
+
+## CSV Export
+
+The ECFS API rate limits submissions to about 500/hour. For 17-108 "Restoring Internet Freedom" they have set up [a form](https://www.fcc.gov/restoring-internet-freedom-comments-wc-docket-no-17-108) for bulk submissions, which may need to be used if the rate limit becomes a problem.
+
+They also ask that organizations use this bulk upload form in any case, if they expect to submit a lot of comments.
+
+To export the job queue to CSV in order to upload, run this command.
+
+    $ rake dear_fcc:create_csv >comments.csv
+
+The jobs will remain in the queue. Make sure to delete them after you upload.
