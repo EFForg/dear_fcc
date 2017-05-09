@@ -8,6 +8,16 @@ class EcfsWorker
     if Padrino.env == :production
       response = HTTParty.post(ecfs_uri, headers: { "Content-Type" => "application/json" }, body: payload.to_json)
       raise Error.new("HTTP #{response.code}") unless (200...300).include?(response.code)
+
+      response = JSON.load(response.body)
+    else
+      response = { "confirm" => Time.now.strftime("%Y%m%d%H%M%S%L"),
+                   "received" => Time.now.strftime("%FT%T%:z") }
     end
+
+    Confirmation.create(fcc_confirm_id: response.fetch("confirm"),
+                        fcc_received: response.fetch("received"))
+
+    response
   end
 end
