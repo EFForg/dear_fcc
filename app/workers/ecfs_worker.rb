@@ -20,4 +20,31 @@ class EcfsWorker
 
     response
   end
+
+  def self.csv_builder(io=StringIO.new)
+    csv = CSV.new(io)
+    csv << ["Proceeding Name", "Proceeding Description", "Proceeding ID",
+            "Name of Filer", "Email Address", "Address Line 1", "Address Line 2",
+            "City", "State", "Zip", "Zip Extension",
+            "Date Received", "Comments"]
+    csv
+  end
+
+  def self.csv_row(payload)
+    proceeding = payload[:proceedings][0]
+    name = payload[:filers][0].fetch(:name)
+    email = payload.fetch(:contact_email)
+    address = payload[:addressentity].fetch(:address_line_1)
+    city = payload[:addressentity].fetch(:city)
+    state = payload[:addressentity].fetch(:state)
+    zip = payload[:addressentity].fetch(:zip_code)
+    comment = payload.fetch(:text_data)
+
+    [
+      proceeding["name"], proceeding["description"], proceeding["id_proceeding"],
+      name, email, address, nil,
+      city, state, zip, nil,
+      Time.now.strftime("%m/%d/%Y"), comment
+    ]
+  end
 end

@@ -14,6 +14,7 @@ ADD config.ru ./config.ru
 ADD db ./db
 ADD public ./public
 ADD Rakefile ./Rakefile
+ADD tasks ./tasks
 
 ADD entrypoint.sh ./entrypoint.sh
 ENTRYPOINT ./entrypoint.sh
