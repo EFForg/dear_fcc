@@ -9,6 +9,8 @@ Bundler.require(:default, RACK_ENV)
 require "active_support"
 require "active_support/core_ext"
 
+require "dotenv/load"
+
 ##
 # ## Enable devel logging
 #
