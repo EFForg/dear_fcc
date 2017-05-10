@@ -37,4 +37,4 @@ To export the job queue to CSV in order to upload, run this command.
 
     $ rake dear_fcc:create_csv >comments.csv
 
-The jobs will remain in the queue. Make sure to delete them after you upload.
+Make sure to save the output because **the jobs will be deleted from the queue**. The CSV output will be at most 5 megabytes since that is the maximum file size accepted by the FCC. If there are still jobs in the queue, generate additional CSV files by running the command again.
