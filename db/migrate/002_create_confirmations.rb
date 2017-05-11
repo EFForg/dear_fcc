@@ -7,6 +7,6 @@ class CreateConfirmations < ActiveRecord::Migration
   end
 
   def self.down
-    remove_table :confirmations
+    drop_table :confirmations
   end
 end
