@@ -21,7 +21,8 @@ module DearFcc
           express_comment: 1
         }
 
-        EcfsWorker.delay(queue: "comments").submit_comment(payload)
+        comment = Comment.create!(payload: payload)
+        EcfsWorker.delay(queue: "comments").submit_comment_by_id(comment.id)
       end
     end
 

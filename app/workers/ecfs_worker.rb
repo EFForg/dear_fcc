@@ -17,8 +17,13 @@ class EcfsWorker
 
     Confirmation.create(fcc_confirm_id: response.fetch("confirm"),
                         fcc_received: response.fetch("received"))
+  end
 
-    response
+  def self.submit_comment_by_id(comment_id)
+    comment = Comment.find(comment_id)
+    submit_comment(comment.payload).tap do |confirmation|
+      comment.update_column(:confirmation_id, confirmation.id)
+    end
   end
 
   def self.csv_builder(io=StringIO.new)
