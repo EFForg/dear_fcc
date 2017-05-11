@@ -60,19 +60,34 @@ form#dearfcc {
   }
 
   #edit-filer-city {
-    margin-right: 1rem;
-    max-width: 275px;
-    float: left;
   }
 
   #edit-filer-state {
-    margin-right: 1rem;
-    max-width: 250px;
     float: left;
+    margin-right: 1rem;
+    max-width: 200px;
   }
 
   #edit-filer-zip-code {
     max-width: 115px;
+  }
+
+  @media (min-width: 940px) {
+    #edit-filer-city {
+      margin-right: 1rem;
+      max-width: 200px;
+      float: left;
+    }
+
+    #edit-filer-state {
+      margin-right: 1rem;
+      max-width: 200px;
+      float: left;
+    }
+
+    #edit-filer-zip-code {
+      max-width: 115px;
+    }
   }
 
   label[for=edit-subscribe] {

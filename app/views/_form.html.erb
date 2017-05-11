@@ -16,6 +16,9 @@
 
     <input placeholder="ZIP Code" aria-label="ZIP code" required class="form-control required" x-autocompletetype="postal-code" autocomplete="postal-code" type="text" id="edit-filer-zip-code" name="filer[zip_code]" value="" size="10" maxlength="128" />
 
+    <p class="non-us-notice">If you are located outside of the United States, please visit
+      the <%= link_to "FCC's website", ecfs_website_url, target: "_blank" %>, click "express," select "international," and submit your comment directly.</p>
+
     <input placeholder="E-mail" aria-label="E-mail" required class="form-control required" type="email" name="filer[email]" size="60" />
   </fieldset>
 
