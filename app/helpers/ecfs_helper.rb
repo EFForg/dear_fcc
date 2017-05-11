@@ -24,6 +24,11 @@ module DearFcc
         comment = Comment.create!(payload: payload)
         EcfsWorker.delay(queue: "comments").submit_comment_by_id(comment.id)
       end
+
+      def ecfs_website_url
+        # Proceeding name should be pulled from config/proceedings.yml but...
+        "https://www.fcc.gov/ecfs/search/filings?proceedings_name=17-108&sort=date_disseminated,DESC"
+      end
     end
 
     helpers EcfsHelper
