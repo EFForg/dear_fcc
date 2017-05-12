@@ -274,7 +274,7 @@
 - type: random
   prefix: 
   choices:
-    - That’s not how the Internet was built, and that not what we want.
+    - That’s not how the Internet was built, and that's not what we want.
     - That’s not the kind of Internet we want to pass on to future generations of technology users.
     - That’s contrary to the basic precepts on which the Internet was built.
 
