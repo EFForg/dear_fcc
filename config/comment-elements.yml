@@ -47,9 +47,9 @@
   choices:
     - Comcast, AT&T, and Verizon
     - AT&T, Comcast, and Verizon
-    - Comcast,  Verizon, and AT&T
+    - Comcast, Verizon, and AT&T
     - AT&T, Verizon, and Comcast
-    - Verizon,  AT&T, and Comcast
+    - Verizon, AT&T, and Comcast
     - Verizon, Comcast, and AT&T
 
 - type: random
@@ -120,7 +120,7 @@
 - type: user-select-or-other
   prefix:
   choices:
-    - Users will have fewer options and a less diverse Internet.
+    - users will have fewer options and a less diverse Internet.
     - ISPs could have too much power to determine what I can do online.
 
 - type: random
@@ -186,7 +186,7 @@
 - type: random
   prefix: by charging
   choices:
-    - websites and online service
+    - websites and online services
     - online services and websites
 
 - type: random
