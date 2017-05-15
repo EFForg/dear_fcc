@@ -23,6 +23,10 @@ form#dearfcc {
     margin: 1rem 0;
   }
 
+  fieldset fieldset {
+    margin: 0;
+  }
+
   label {
     font-weight: 600;
     font-size: 1rem;
@@ -184,6 +188,20 @@ form#dearfcc {
 
   .retention-notice {
     text-align: center;
+  }
+
+
+  .international-address-switch, .us-address-switch {
+    display: inline-block;
+    float: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+
+  .international-filer, .us-address-switch {
+    display: none;
   }
 }
 

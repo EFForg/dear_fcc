@@ -24,3 +24,25 @@ $(".random-choice").each(function() {
 
   this.classList.add("processed");
 });
+
+$(".international-address-switch").click(function(e) {
+  e.preventDefault();
+
+  var form = $(this).parents('form');
+  form.find('.us-filer, .international-address-switch').hide();
+  form.find('.international-filer, .us-address-switch').show();
+
+  form.find('.us-filer *').prop('required', null);
+  form.find('.international-filer *').prop('required', true);
+});
+
+$(".us-address-switch").click(function(e) {
+  e.preventDefault();
+
+  var form = $(this).parents('form');
+  form.find('.international-filer, .us-address-switch').hide();
+  form.find('.us-filer, .international-address-switch').show();
+
+  form.find('.us-filer *').prop('required', true);
+  form.find('.international-filer *').prop('required', null);
+});

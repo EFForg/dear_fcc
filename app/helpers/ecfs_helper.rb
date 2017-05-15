@@ -9,17 +9,23 @@ module DearFcc
           authors: [],
           bureaus: [],
           lawfirms: [],
-          addressentity: {
-            address_line_1: filer.fetch("address_line_1"),
-            city: filer.fetch("city"),
-            state: filer.fetch("state"),
-            zip_code: filer.fetch("zip_code")
-          },
+          addressentity: {},
           internationaladdressentity: { addresstext: "" },
           contact_email: filer.fetch("email"),
           text_data: comment,
           express_comment: 1
         }
+
+        if filer.key?("international_address")
+          payload.fetch(:internationaladdressentity)[:addresstext] = filer.fetch("international_address")
+        else
+          filter[:addressentity] = {
+            address_line_1: filer.fetch("address_line_1"),
+            city: filer.fetch("city"),
+            state: filer.fetch("state"),
+            zip_code: filer.fetch("zip_code")
+          }
+        end
 
         comment = Comment.create!(payload: payload)
         EcfsWorker.delay(queue: "comments").submit_comment_by_id(comment.id)
