@@ -29,6 +29,11 @@ gem 'padrino-sprockets'
 gem 'sass'
 
 # Test/development requirements
+group :test do
+  gem 'rspec'
+  gem 'webmock'
+end
+
 group :test, :development do
   gem 'pry'
 end
