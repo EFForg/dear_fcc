@@ -11,7 +11,7 @@
 
   <p>
     <%= @filer.fetch("name") %><br />
-    <% if @filer.key?("international_address") %>
+    <% if @filer["international_address"].present? %>
       <% @filer.fetch("international_address").lines.map do |l| %><%= l %><br /><% end %>
     <% else %>
       <%= @filer.fetch("address_line_1") %><br />
@@ -21,7 +21,7 @@
 
   <input type="hidden" name="filer[name]" value="<%= @filer.fetch('name') %>" />
 
-  <% if @filer.key?("international_address") %>
+  <% if @filer["international_address"].present? %>
     <input type="hidden" name="filer[international_address]" value="<%= @filer.fetch('international_address') %>" />
   <% else %>
     <input type="hidden" name="filer[address_line_1]" value="<%= @filer.fetch('address_line_1') %>" />
