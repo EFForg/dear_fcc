@@ -19,7 +19,7 @@ module DearFcc
         if filer.key?("international_address")
           payload.fetch(:internationaladdressentity)[:addresstext] = filer.fetch("international_address")
         else
-          filter[:addressentity] = {
+          payload[:addressentity] = {
             address_line_1: filer.fetch("address_line_1"),
             city: filer.fetch("city"),
             state: filer.fetch("state"),
