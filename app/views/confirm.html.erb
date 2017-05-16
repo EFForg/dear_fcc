@@ -11,15 +11,25 @@
 
   <p>
     <%= @filer.fetch("name") %><br />
-    <%= @filer.fetch("address_line_1") %><br />
-    <%= @filer.fetch("city") %>, <%= @filer.fetch("state") %> <%= @filer.fetch("zip_code") %>
+    <% if @filer["international_address"].present? %>
+      <% @filer.fetch("international_address").lines.map do |l| %><%= l %><br /><% end %>
+    <% else %>
+      <%= @filer.fetch("address_line_1") %><br />
+      <%= @filer.fetch("city") %>, <%= @filer.fetch("state") %> <%= @filer.fetch("zip_code") %>
+    <% end %>
   </p>
 
   <input type="hidden" name="filer[name]" value="<%= @filer.fetch('name') %>" />
-  <input type="hidden" name="filer[address_line_1]" value="<%= @filer.fetch('address_line_1') %>" />
-  <input type="hidden" name="filer[city]" value="<%= @filer.fetch('city') %>" />
-  <input type="hidden" name="filer[state]" value="<%= @filer.fetch('state') %>" />
-  <input type="hidden" name="filer[zip_code]" value="<%= @filer.fetch('zip_code') %>" />
+
+  <% if @filer["international_address"].present? %>
+    <input type="hidden" name="filer[international_address]" value="<%= @filer.fetch('international_address') %>" />
+  <% else %>
+    <input type="hidden" name="filer[address_line_1]" value="<%= @filer.fetch('address_line_1') %>" />
+    <input type="hidden" name="filer[city]" value="<%= @filer.fetch('city') %>" />
+    <input type="hidden" name="filer[state]" value="<%= @filer.fetch('state') %>" />
+    <input type="hidden" name="filer[zip_code]" value="<%= @filer.fetch('zip_code') %>" />
+  <% end %>
+
   <input type="hidden" name="filer[email]" value="<%= @filer.fetch('email') %>" />
   <input type="hidden" name="subscribe" value="<%= @subscribe ? 'yes' : 'no' %>" />
 

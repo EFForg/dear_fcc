@@ -78,10 +78,10 @@ describe DearFcc::App::EcfsHelper do
     end
 
     context "filer has international_address" do
-      pending "should use internationaladdressentity instead of the usual fields" do
+      it "should use internationaladdressentity instead of the usual fields" do
         delayed_worker, comment_record = double, double(id: 123)
 
-        expect(Comment).to receive(:create!).with(international_payload: international_payload){ comment_record }
+        expect(Comment).to receive(:create!).with(payload: international_payload){ comment_record }
         expect(EcfsWorker).to receive(:delay){ delayed_worker }
         expect(delayed_worker).to receive(:submit_comment_by_id).with(comment_record.id)
 
