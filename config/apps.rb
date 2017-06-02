@@ -31,7 +31,7 @@ Padrino.configure_apps do
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
 
-  use Rack::Attack
+  use Rack::Attack if ENV.key?("MEMCACHE_HOST")
 end
 
 # Mounts the core application for this project
