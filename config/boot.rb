@@ -86,8 +86,16 @@ end
 if ENV.key?("MEMCACHE_HOST")
   Rack::Attack.cache.store = ActiveSupport::Cache::MemCacheStore.new(ENV.fetch("MEMCACHE_HOST"))
 
-  Rack::Attack.throttle('req/ip', limit: 15, period: 1.hour) do |req|
-    req.ip if req.path == "/fcc-comments"
+  # Rack::Attack.throttle('req/ip', limit: 15, period: 1.hour) do |req|
+  #   req.ip if req.path == "/fcc-comments"
+  # end
+
+  Rack::Attack.throttle('req/ip', limit: 4000, period: 1.day) do |req|
+    "fcc-comments-confirm" if req.path == "/fcc-comments/confirm"
+  end
+
+  Rack::Attack.throttle('req/ip', limit: 4000, period: 1.day) do |req|
+    "fcc-comments" if req.path == "/fcc-comments"
   end
 end
 
