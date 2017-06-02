@@ -11,6 +11,8 @@ require "active_support/core_ext"
 
 require "dotenv/load"
 
+require "rack/attack"
+
 ##
 # ## Enable devel logging
 #
@@ -78,5 +80,14 @@ Padrino.after_load do
 
   ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
 end
+
+
+
+Rack::Attack.cache.store = ActiveSupport::Cache::MemCacheStore.new(ENV.fetch("MEMCACHE_HOST"))
+
+Rack::Attack.throttle('req/ip', limit: 15, period: 1.hour) do |req|
+  req.ip if req.path == "/fcc-comments"
+end
+
 
 Padrino.load!

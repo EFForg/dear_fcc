@@ -30,6 +30,8 @@ Padrino.configure_apps do
   set :session_secret, '0ef2622b270f7ed4199c73ff6f43f9c72aced2b1261912782f14a1b4c76eda18'
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
+
+  use Rack::Attack
 end
 
 # Mounts the core application for this project

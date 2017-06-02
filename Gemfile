@@ -23,6 +23,8 @@ gem 'activerecord', require: 'active_record'
 gem 'delayed_job_active_record'
 gem 'httparty'
 gem 'dotenv'
+gem 'rack-attack'
+gem 'dalli'
 
 # Assets
 gem 'padrino-sprockets'
