@@ -1,4 +1,4 @@
-<form id="dearfcc" enctype="multipart/form-data" action="/fcc-comments/confirm" method="post" accept-charset="UTF-8">
+<% form_tag("/fcc-comments/confirm", method: "post", multipart: true, id: "dearfcc", protect_from_csrf: false) do %>
   <h3>Dear FCC,</h3>
 
   <%= write_dear_fcc_comment %>
@@ -40,4 +40,4 @@
   <div type="submit" class="form-actions">
     <button class="next" value="Next >>">Next &gt;&gt;</button>
   </div>
-</form>
+<% end %>

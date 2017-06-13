@@ -1,6 +1,6 @@
 <%= partial "main_image" %>
 
-<form id="dearfcc" enctype="multipart/form-data" action="/fcc-comments" method="post" accept-charset="UTF-8">
+<% form_tag("/fcc-comments", method: "post", multipart: true, id: "dearfcc") do %>
   <h3>Dear FCC,</h3>
 
   <fieldset>
@@ -42,4 +42,4 @@
   </div>
 
   <p class="retention-notice">EFF will keep a copy of your comments for our records, which we may re-submit or publish as needed to help your voice be heard.</p>
-</form>
+<% end %>

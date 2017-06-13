@@ -6,16 +6,9 @@ module DearFcc
     register Padrino::Sprockets
     sprockets
 
-    disable :protect_from_csrf
-    disable :sessions
+    set :protect_from_csrf, except: "/fcc-comments/confirm"
+    enable :sessions
 
-    ##
-    # Application configuration options.
-    #
-    # set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
-    # set :dump_errors, true        # Exception backtraces are written to STDERR (default for production/development)
-    # set :show_exceptions, true    # Shows a stack trace in browser (default for development)
-    
     layout  :dear_fcc             # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :logging, true            # Logging in STDOUT for development and file for production
 
@@ -64,16 +57,8 @@ module DearFcc
       @email_text = @facebook_text
     end
 
-    ##
-    # You can manage errors like:
-    #
-    #   error 404 do
-    #     render 'errors/404'
-    #   end
-    #
-    #   error 500 do
-    #     render 'errors/500'
-    #   end
-    #
+    before do
+      request.session_options[:skip] = true unless request.post?
+    end
   end
 end
