@@ -15,6 +15,12 @@
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
+
+    <script type="text/javascript">
+      <% if ENV["SENTRY_DSN_PUBLIC"].present? %>
+        window.SENTRY_DSN = "<%= ENV['SENTRY_DSN_PUBLIC'] %>";
+      <% end %>
+    </script>
   </head>
 
   <body>

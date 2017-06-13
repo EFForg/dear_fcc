@@ -25,6 +25,7 @@ gem 'httparty'
 gem 'dotenv'
 gem 'rack-attack'
 gem 'dalli'
+gem 'sentry-raven'
 
 # Assets
 gem 'padrino-sprockets'

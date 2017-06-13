@@ -1,6 +1,10 @@
 //= require vendor/jquery
 //= require vendor/jquery-ujs
+//= require vendor/raven
 //= require_tree .
+
+if (window['SENTRY_DSN'])
+  Raven.config(window['SENTRY_DSN']).install();
 
 $(document).on("change", ".select-or-other select", function(e) {
   var select = this, parent = $(this).parents(".select-or-other");

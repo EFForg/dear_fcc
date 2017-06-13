@@ -31,7 +31,9 @@ Padrino.configure_apps do
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
 
-  use Rack::Attack if ENV.key?("MEMCACHE_HOST")
+  use Raven::Rack if ENV["SENTRY_DSN"].present?
+
+  use Rack::Attack if ENV["MEMCACHE_HOST"].present?
 end
 
 # Mounts the core application for this project
