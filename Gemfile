@@ -34,7 +34,10 @@ gem 'sass'
 # Test/development requirements
 group :test do
   gem 'rspec'
+  gem 'rack-test'
   gem 'webmock'
+
+  gem 'sqlite3'
 end
 
 group :test, :development do

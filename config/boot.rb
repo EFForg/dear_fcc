@@ -57,28 +57,35 @@ Padrino.dependency_paths.unshift Padrino.root('config/initializers/*.rb')
 #
 Padrino.before_load do
   Padrino.dependency_paths << Padrino.root("app/workers/*.rb")
+  Padrino.dependency_paths << Padrino.root("app/helpers/*.rb")
 end
 
 ##
 # Add your after (RE)load hooks here
 #
 Padrino.after_load do
-  dbconfig = {
-    adapter: 'postgresql',
-    encoding: 'utf8',
-    reconnect: true,
-    pool: 5,
-    database: ENV.fetch('POSTGRES_DB'),
-    username: ENV.fetch('POSTGRES_USER'),
-    password: ENV.fetch('POSTGRES_PASSWORD'){ '' },
-    host: ENV.fetch('POSTGRES_HOST')
-  }
+  if Padrino.env == :test
+    ActiveRecord::Base.establish_connection(
+      adapter: 'sqlite3',
+      database: ':memory:'
+    )
+    load("#{Padrino.root}/db/schema.rb")
+  else
+    dbconfig = {
+      adapter: 'postgresql',
+      encoding: 'utf8',
+      reconnect: true,
+      pool: 5,
+      database: ENV.fetch('POSTGRES_DB'),
+      username: ENV.fetch('POSTGRES_USER'),
+      password: ENV.fetch('POSTGRES_PASSWORD'){ '' },
+      host: ENV.fetch('POSTGRES_HOST')
+    }
 
-  ActiveRecord::Base.configurations[:test] = dbconfig
-  ActiveRecord::Base.configurations[:development] = dbconfig
-  ActiveRecord::Base.configurations[:production] = dbconfig
-
-  ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
+    ActiveRecord::Base.configurations[:development] = dbconfig
+    ActiveRecord::Base.configurations[:production] = dbconfig
+    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrino.env])
+  end
 end
 
 
