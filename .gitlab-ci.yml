@@ -1,0 +1,6 @@
+before_script:
+  - docker build -t dear_fcc .
+
+rspec:
+  script:
+    - docker run -e ECFS_API_KEY=test dear_fcc bundle exec rspec
