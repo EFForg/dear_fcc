@@ -6,6 +6,8 @@ module DearFcc
     register Padrino::Sprockets
     sprockets
 
+    set :static_cache_control, [:public, max_age: 60 * 60 * 24 * 365]
+
     set :protect_from_csrf, except: "/fcc-comments/confirm"
     enable :sessions
 
