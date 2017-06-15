@@ -3,6 +3,15 @@ module DearFcc
     register Padrino::Mailer
     register Padrino::Helpers
 
+    register Padrino::Cache
+    enable :caching
+
+    if ENV.key?("MEMCACHE_HOST")
+      set :cache, Padrino::Cache.new(:Memcached,
+                                     server: ENV.fetch("MEMCACHE_HOST"),
+                                     exception_retry_limit: 1)
+    end
+
     register Padrino::Sprockets
     sprockets
 
@@ -14,7 +23,7 @@ module DearFcc
     layout  :dear_fcc             # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :logging, true            # Logging in STDOUT for development and file for production
 
-    get "/" do
+    get "/", cache: true do
       render "index"
     end
 
@@ -42,7 +51,7 @@ module DearFcc
       redirect("/thanks")
     end
 
-    get "/thanks" do
+    get "/thanks", cache: true do
       render "thanks"
     end
 
