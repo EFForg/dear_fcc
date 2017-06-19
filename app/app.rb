@@ -71,5 +71,18 @@ module DearFcc
     before do
       request.session_options[:skip] = true unless request.post?
     end
+
+
+    error ::Exception do
+      response.status = 500
+      content_type "text/html"
+      render "500", layout: "dear_fcc_basic"
+    end
+
+    error Sinatra::NotFound do
+      response.status = 404
+      content_type "text/html"
+      render "404", layout: "dear_fcc_basic"
+    end
   end
 end

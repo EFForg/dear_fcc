@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Dear FCC" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Save Net Neutrality" />
+    <meta property="og:image" content="https://dearfcc.org/images/neutrality-3.png?" />
+
+    <link rel="icon" type="image/x-icon" href="<%= image_path('favicon.ico') %>">
+    <link rel="canonical" href="https://dearfcc.org/" />
+
+    <title>Dear FCC, It's Our Internet and We'll Fight To Protect It</title>
+
+    <%= stylesheet_link_tag "application", media: "all" %>
+
+    <script type="text/javascript">
+      <% if ENV["SENTRY_DSN_PUBLIC"].present? %>
+        window.SENTRY_DSN = "<%= ENV['SENTRY_DSN_PUBLIC'] %>";
+      <% end %>
+    </script>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <a href="https://www.eff.org/" title="Electronic Frontier Foundation">
+        <img src="<%= image_path('eff-logo.png') %>" alt="Home">
+      </a>
+    </header>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
