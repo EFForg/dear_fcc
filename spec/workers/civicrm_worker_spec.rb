@@ -1,7 +1,5 @@
 require "spec_helper"
 
-require "workers/civicrm_worker"
-
 describe CivicrmWorker do
   describe '.subscribe(email, zip_code)' do
     it "should call CivicrmClient#import_contact" do

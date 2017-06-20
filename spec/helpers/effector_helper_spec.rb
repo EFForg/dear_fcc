@@ -1,7 +1,5 @@
 require "spec_helper"
 
-require "helpers/effector_helper"
-
 app_class = Class.new
 app_class.include(DearFcc::App::EffectorHelper)
 
