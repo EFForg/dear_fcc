@@ -1,7 +1,5 @@
 require "spec_helper"
 
-require "workers/ecfs_worker"
-
 describe EcfsWorker do
   let(:payload) { { key: "the payload is opaque" } }
   describe ".submit_comment" do

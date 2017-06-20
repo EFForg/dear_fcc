@@ -33,7 +33,7 @@ Padrino.configure_apps do
 
   use Raven::Rack if ENV["SENTRY_DSN"].present?
 
-  use Rack::Attack if ENV["MEMCACHE_HOST"].present?
+  use Rack::Attack if ENV["MEMCACHE_HOST"].present? && Padrino.env != :test
 end
 
 # Mounts the core application for this project

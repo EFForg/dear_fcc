@@ -12,6 +12,7 @@ ADD app ./app
 ADD config ./config
 ADD config.ru ./config.ru
 ADD db ./db
+ADD lib ./lib
 ADD public ./public
 ADD Rakefile ./Rakefile
 ADD spec ./spec

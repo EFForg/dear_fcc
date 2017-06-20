@@ -21,7 +21,8 @@ require "rack/attack"
 #
 # ## Configure Ruby to allow requiring features from your lib folder
 #
-# $LOAD_PATH.unshift Padrino.root('lib')
+$LOAD_PATH.unshift Padrino.root('lib')
+
 #
 # ## Enable logging of source location
 #
@@ -58,6 +59,7 @@ Padrino.dependency_paths.unshift Padrino.root('config/initializers/*.rb')
 Padrino.before_load do
   Padrino.dependency_paths << Padrino.root("app/workers/*.rb")
   Padrino.dependency_paths << Padrino.root("app/helpers/*.rb")
+  Padrino.dependency_paths << Padrino.root("lib/*.rb")
 end
 
 ##
