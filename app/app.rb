@@ -17,8 +17,8 @@ module DearFcc
 
     set :static_cache_control, [:public, max_age: 60 * 60 * 24 * 365]
 
-    set :protect_from_csrf, except: "/fcc-comments/confirm"
-    enable :sessions
+    disable :protect_from_csrf
+    disable :sessions
 
     layout  :dear_fcc             # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :logging, true            # Logging in STDOUT for development and file for production
