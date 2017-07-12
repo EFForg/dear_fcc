@@ -46,9 +46,7 @@ module DearFcc
         ecfs_express_comment(proceedings, params.fetch("comment"), params.fetch("filer"))
       end
 
-      if params["subscribe"] == "yes"
-        sign_up_for_effector(params.fetch("filer"))
-      end
+      send_thank_you_email(params.fetch("filer"), params["subscribe"] == "yes")
 
       redirect("/thanks")
     end
