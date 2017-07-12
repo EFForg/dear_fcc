@@ -100,15 +100,14 @@ describe DearFcc::App do
       post_comment
     end
 
-    it "should call the #sign_up_for_effector helper method if subscribe=yes" do
-      expect_any_instance_of(app).to receive(:sign_up_for_effector).with(filer_param)
+    it "should call the #send_thank_you_email helper method if subscribe=yes" do
+      expect_any_instance_of(app).to receive(:send_thank_you_email).with(filer_param, subscribe: true)
       post_comment(subscribe: "yes")
     end
 
-    it "should not call the #sign_up_for_effector helper method if subscribe != yes" do
-      expect_any_instance_of(app).not_to receive(:sign_up_for_effector).with(filer_param)
+    it "should call the #send_thank_you_email helper method if subscribe != yes" do
+      expect_any_instance_of(app).to receive(:send_thank_you_email).with(filer_param, subscribe: false)
       post_comment(subscribe: "no")
-      post_comment
     end
   end
 end
