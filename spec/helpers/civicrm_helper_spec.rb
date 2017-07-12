@@ -1,9 +1,9 @@
 require "spec_helper"
 
 app_class = Class.new
-app_class.include(DearFcc::App::EffectorHelper)
+app_class.include(DearFcc::App::CivicrmHelper)
 
-describe DearFcc::App::EffectorHelper do
+describe DearFcc::App::CivicrmHelper do
   let(:filer){ { "email" => "user@example.com", "zip_code" => "12345" } }
 
   describe '#send_thank_you_email(filer)' do
