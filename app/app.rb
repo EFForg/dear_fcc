@@ -46,7 +46,7 @@ module DearFcc
         ecfs_express_comment(proceedings, params.fetch("comment"), params.fetch("filer"))
       end
 
-      send_thank_you_email(params.fetch("filer"), params["subscribe"] == "yes")
+      send_thank_you_email(params.fetch("filer"), subscribe: params["subscribe"] == "yes")
 
       redirect("/thanks")
     end
