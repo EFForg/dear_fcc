@@ -1,7 +1,7 @@
 class CivicrmWorker
   def self.send_thank_you_email(email, zip_code: nil, subscribe: false)
     civicrm = CivicrmClient.new
-    template_config = YAML.load("#{Padrino.env}/config/thank_you_email.yml")
+    template_config = YAML.load_file("#{Padrino.env}/config/thank_you_email.yml")
 
     contact_params = { email: email }
     contact_params[:zip_code] = zip_code if zip_code
