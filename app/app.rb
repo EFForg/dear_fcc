@@ -58,7 +58,7 @@ module DearFcc
     before do
       @share_url = "https://dearfcc.org/"
       @twitter_text = "Tell Congress to oppose FCC rules that allow ISP discrimination. " <<
-                      "It's time to support real #NetNeutrality. Call now:"
+                      "It's time to support real #NetNeutrality. Write now"
       @facebook_text = "Tell the FCC not to create new rules that threaten Net Neutrality.\n\n" <<
                        "It's our Internet.\n\n" <<
                        "We have to protect it.\n\n" <<
