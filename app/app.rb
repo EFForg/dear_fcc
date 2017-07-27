@@ -6,7 +6,7 @@ module DearFcc
     register Padrino::Cache
     enable :caching
 
-    if ENV.key?("MEMCACHE_HOST") && Padrino.env != :test
+    if ENV.key?("MEMCACHE_HOST") && Padrino.env == :production
       set :cache, Padrino::Cache.new(:Memcached,
                                      server: ENV.fetch("MEMCACHE_HOST"),
                                      exception_retry_limit: 1)
