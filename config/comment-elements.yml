@@ -10,6 +10,14 @@
     - As an Internet user, I’m asking the FCC to protect the net neutrality protections currently in place.
     - The FCC needs to stand up for Internet users like me and keep the net neutrality rules that are already in effect.
 
+- type: random
+  prefix:
+  choices:
+    - Please listen to the millions of Internet users who rely on a free and open Internet, and not just the handful of large ISPs who stand to gain from rolling back net neutrality protections.
+    - Large cable companies claim to support the principles of net neutrality, but without the clear rules in place under Title II, those principles will be impossible to enforce.
+    - I stand with the millions of other Internet users who’ve urged the Commission to keep important net neutrality protections intact.
+    - Please reject arguments that prioritize the business interests of an ISP over my right to communicate and assemble online.
+
 - type: break
 
 - type: random
