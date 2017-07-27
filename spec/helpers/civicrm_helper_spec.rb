@@ -16,5 +16,17 @@ describe DearFcc::App::CivicrmHelper do
 
       app_class.new.send_thank_you_email(filer)
     end
+
+    it "should not pass along invalid zip codes" do
+      delayed_worker = double("delayed_worker")
+
+      expect(CivicrmWorker).to receive(:delay){ delayed_worker }
+      expect(delayed_worker).to receive(:send_thank_you_email).
+                                 with(filer["email"], { zip_code: nil, subscribe: false })
+
+      filer["zip_code"] = "1230442231123"
+
+      app_class.new.send_thank_you_email(filer)
+    end
   end
 end
