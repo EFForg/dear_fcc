@@ -23,7 +23,6 @@ ADD spec ./spec
 ADD tasks ./tasks
 
 ADD entrypoint.sh ./entrypoint.sh
-ENTRYPOINT ./entrypoint.sh
 
 CMD ["padrino", "s", "-h", "0.0.0.0"]
 ENTRYPOINT ["/opt/dear_fcc/entrypoint.sh"]
