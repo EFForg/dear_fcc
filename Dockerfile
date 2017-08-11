@@ -1,12 +1,16 @@
-FROM ruby:2.3.3
+FROM ruby:2.4-alpine
 
-RUN mkdir /opt/dear_fcc
+RUN mkdir -p /opt/dear_fcc
 WORKDIR /opt/dear_fcc
+
+RUN apk --update add \
+    build-base ruby-dev libc-dev linux-headers \
+    openssl-dev postgresql-dev sqlite-dev
 
 ADD Gemfile ./Gemfile
 ADD Gemfile.lock ./Gemfile.lock
 
-RUN bundle install
+RUN bundle install --path vendor/bundle
 
 ADD app ./app
 ADD config ./config

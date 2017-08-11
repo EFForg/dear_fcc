@@ -38,5 +38,5 @@ services:
 #      - ./tasks:/opt/dear_fcc/tasks
 
   memcached:
-    image: memcached
+    image: memcached:alpine
 
