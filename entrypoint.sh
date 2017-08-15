@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/sh
 
 attempts=0
 while [ $attempts -lt 3 ]; do
