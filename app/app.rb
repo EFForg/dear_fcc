@@ -23,9 +23,10 @@ module DearFcc
     layout  :dear_fcc             # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     set :logging, true            # Logging in STDOUT for development and file for production
 
-    get "/", cache: true do
+    get "/", cache: Padrino.env == :production do
       render "index"
     end
+
 
     post "/fcc-comments/confirm" do
       @comment = read_dear_fcc_comment(params.fetch("comment"))
