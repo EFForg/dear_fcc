@@ -4,7 +4,7 @@ module DearFcc
       def ecfs_express_comment(proceedings, comment, filer)
         payload = {
           documents: [],
-          proceedings: proceedings,
+          proceedings: [proceedings.first.slice("name", "id_proceeding", "description")],
           filers: [{ name: filer.fetch("name") }],
           authors: [],
           bureaus: [],

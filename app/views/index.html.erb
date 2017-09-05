@@ -4,7 +4,10 @@
 
 <%= partial "summary" %>
 
-<h2 class="form-header">Start your letter to the FCC:</h2>
+<% if comment_period_open? %>
+  <h2 class="form-header">Start your letter to the FCC:</h2>
 
-<%= partial "form" %>
+  <%= partial "form" %>
+<% end %>
+
 
