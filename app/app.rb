@@ -67,7 +67,10 @@ module DearFcc
     end
 
     before except: "/" do
-      raise Sinatra::NotFound unless comment_period_open?
+      unless comment_period_open?
+        content_type "text/html"
+        halt(404, render("404", layout: "dear_fcc_basic"))
+      end
     end
 
 
