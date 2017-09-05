@@ -35,13 +35,6 @@ module DearFcc
     end
 
     post "/fcc-comments" do
-      if Padrino.env == :production
-        $proceedings ||= YAML.load_file("#{Padrino.root}/config/proceedings.yml")
-        proceedings = $proceedings
-      else
-        proceedings = YAML.load_file("#{Padrino.root}/config/proceedings.yml")
-      end
-
       unless params["test"].present?
         ecfs_express_comment(proceedings, params.fetch("comment"), params.fetch("filer"))
       end
@@ -70,6 +63,10 @@ module DearFcc
 
     before do
       request.session_options[:skip] = true unless request.post?
+    end
+
+    before except: "/" do
+      raise Sinatra::NotFound unless comment_period_open?
     end
 
 
