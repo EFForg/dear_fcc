@@ -23,5 +23,18 @@ namespace :dear_fcc do
 
     Delayed::Job.where(id: job_ids).delete_all
   end
+
+  desc "Clear the cache"
+  task :cc do
+    if ENV.key?("MEMCACHE_HOST") && Padrino.env == :production
+      cache = Padrino::Cache.new(:Memcached,
+                                 server: ENV.fetch("MEMCACHE_HOST"),
+                                 exception_retry_limit: 1)
+    else
+      cache = Padrino::Cache.new(:File,
+                                 dir: Padrino.root("tmp", "dear_fcc", "app", "cache"))
+    end
+    cache.clear
+  end
 end
 

@@ -9,5 +9,6 @@ while [ $attempts -lt 3 ]; do
     fi
 done
     
+bundle exec rake dear_fcc:cc
 
 exec "$@"
