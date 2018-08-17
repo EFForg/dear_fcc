@@ -56,7 +56,7 @@
     <noscript><img src="https://anon-stats.eff.org/piwik.php?idsite=14&amp;rec=1&amp;action_name=DearFCC" style="border:0" alt=""/ ></noscript>
     <div id="anon-stats" class="element-invisible"></div>
     <script type="text/javascript">
-      document.getElementById('anon-stats').innerHTML = '<img src="https://anon-stats.eff.org/piwik.php?idsite=14&amp;rec=1&amp;urlref='+document.referrer+'&amp;action_name=DearFCC" style="border:0" alt="" />';
+      document.getElementById('anon-stats').innerHTML = '<img src="https://anon-stats.eff.org/js/?idsite=14&amp;rec=1&amp;urlref=' + encodeURIComponent(document.referrer) + '&amp;action_name=' + encodeURIComponent(document.title) + '" style="border:0" height="0" width="0" alt="" />';
     </script>
 
     <%= javascript_include_tag "application" %>
